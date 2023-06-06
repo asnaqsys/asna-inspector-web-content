@@ -1,0 +1,61 @@
+legend {
+    background-color: white;
+    padding: 2px 10px;
+    border: 1px solid black;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+    .asnaInstance legend {
+        border-color: #004477;
+    }
+
+.asnaInstance {
+    border-color: #004477;
+    border-width: 2px;
+    background-color:lightblue;
+}
+
+
+
+
+
+
+
+
+
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    border: 1px solid #000000;
+
+}
+
+    table td, table th {
+        padding: 3px 10px;
+        border: 1px solid black;
+    }
+
+     table th {
+     
+        background-color: #004477;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+
+     table td {
+        color: #000000;
+        border-left: 1px solid #E1EEF4;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+  

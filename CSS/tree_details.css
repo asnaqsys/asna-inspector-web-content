@@ -1,0 +1,208 @@
+/* Some icons by Yusuke Kamiyamane (http://p.yusukekamiyamane.com/). All rights reserved. */
+
+div.tableWrapper
+{
+    /* could pad table wrappers if desired */
+    padding: 0;
+    overflow: hidden;
+}
+
+table
+{
+    table-layout: fixed;
+}
+
+th
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    text-align: left;
+    background-color: #005d9a;
+    border-width: thin;
+    width: 175px;
+    color: White;
+    padding: 4px;
+}
+
+td
+{
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 500px;
+}
+
+td span
+{
+    white-space: normal;
+    overflow: hidden;
+    margin: -4px 0; /* negate cell-padding as desired */
+    margin-right: -4px;
+    padding: 3px 0; /* inner-padding looks nicer */
+    max-height: 3.5em; /* approximately 3-lines height with this inner-padding */
+    overflow-y: auto; /* scrollbar when more than 3-lines high */
+    white-space: normal; /* negate default setting */
+    display: block; /* needed to have a scrollbar on a SPAN */
+}
+
+#center span 
+{
+  cursor: default;   
+}
+
+#center ul img
+{
+    padding-right: 6px;
+}
+
+#folderNavigation
+{
+    min-height: 18px;
+    padding: 5px;
+}
+
+#parentButton
+{
+    float: left;
+}
+
+#folderNavigation img
+{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 20px;
+    width: 20px;
+    
+}
+
+#currentPath p
+{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10px;
+    padding-top: 0px;
+    white-space: normal;
+    overflow: hidden;
+}
+
+#center ul
+{
+    list-style: none;
+}
+
+/*
+ * jsTree default theme 1.0
+ * Supported features: dots/no-dots, icons/no-icons, focused, loading
+ * Supported plugins: ui (hovered, clicked), checkbox, contextmenu, search
+ */
+
+.jstree-default li, 
+.jstree-default ins { background-image:url("https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/tree.png"); background-repeat:no-repeat; background-color:transparent; }
+.jstree-default li { background:transparent; }
+.jstree-default li.jstree-last { background:transparent; }
+.jstree-default .jstree-open > ins {  background-position:-18px 0; }
+.jstree-default .jstree-closed > ins { background-position:0 0; }
+.jstree-default .jstree-leaf > ins { background:transparent; }
+
+li.jstree-open > a .jstree-icon
+{
+    background: url("https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/open.png") 0px 0px no-repeat !important;
+}
+li.jstree-closed > a .jstree-icon
+{
+    background: url("https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/closed.png") 0px 0px no-repeat !important;
+}
+li.jstree-leaf > a .jstree-icon
+{
+    background: url("https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/file.png") 0px 0px no-repeat !important;
+}
+
+/* IE6 BEGIN */
+.jstree-default li, 
+.jstree-default ins,
+#vakata-dragged.jstree-default .jstree-invalid, 
+#vakata-dragged.jstree-default .jstree-ok, 
+#jstree-marker.jstree-default { _background-image:url("https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/tree.png"); }
+.jstree-default .jstree-open ins { _background-position:-72px 0; }
+.jstree-default .jstree-closed ins { _background-position:-54px 0; }
+.jstree-default .jstree-leaf ins { _background-position:-36px 0; }
+.jstree-default a ins.jstree-icon { _background-position:-56px -19px; }
+#vakata-contextmenu.jstree-default-context ins { _display:none; }
+#vakata-contextmenu.jstree-default-context li { _zoom:1; }
+.jstree-default .jstree-undetermined a .jstree-checkbox { _background-position:-20px -19px; }
+.jstree-default .jstree-checked a .jstree-checkbox { _background-position:-38px -19px; }
+.jstree-default .jstree-unchecked a .jstree-checkbox { _background-position:-2px -19px; }
+/* IE6 END */
+
+#quicklinks
+{
+    width: 100%;
+}
+
+#quicklinks ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+#quicklinks li
+{
+    float: left;
+    display: block;
+    text-align: center;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    height: 30px;
+}
+
+#quicklinks li:hover a
+{
+    color: #005d9a;
+}
+
+#quicklinks li:active a
+{
+    color: Red;
+}
+
+#quicklinks li.selected
+{
+    background-color: #c7c7c7;
+}
+
+#quicklinks li.selected a
+{
+    color: #005d9a;
+}
+
+#quicklinks li a
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+    display: block;
+    outline: 0;
+    text-decoration: none;
+}
+
+#quicklinks li:hover
+{
+    cursor: pointer;
+    color: #b4c199;
+}
+
+#quicklinks img
+{
+    height: 20px;
+    width: 20px;
+    padding-right: 5px;
+    margin-top: 2px;
+    border: none;
+}

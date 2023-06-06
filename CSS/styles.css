@@ -1,0 +1,113 @@
+html, body
+{
+    background: #666;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto; /* when page gets too small */
+}
+
+#content
+{
+    background: #999;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.pane
+{
+    display: none; /* will appear when layout inits */
+}
+
+#navigation
+{
+    width: 100%;
+    margin: -10px;
+}
+
+#navigation ul
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+#navigation li
+{
+    float: left;
+    display: block;
+    text-align: center;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    height: 30px;
+}
+
+#navigation li:hover a
+{
+    color: #005d9a;
+}
+
+#navigation li:active a
+{
+    color: Red;
+}
+
+#navigation li.selected
+{
+    background-color: #c7c7c7;
+}
+
+#navigation li.selected a
+{
+    color: #005d9a;
+}
+
+#navigation li a
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #000;
+    display: block;
+    outline: 0;
+    text-decoration: none;
+}
+
+#navigation li:hover
+{
+    cursor: pointer;
+    color: #b4c199;
+}
+
+#navigation img
+{
+    height: 20px;
+    width: 20px;
+    padding-right: 5px;
+    margin-top: 2px;
+    border: none;
+}
+
+#logoDiv
+{
+    margin: -8px;
+    float: right;
+}
+
+#logoDiv img
+{
+    height: 16px;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

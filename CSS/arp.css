@@ -1,0 +1,157 @@
+div.tableWrapper
+{
+    /* could pad table wrappers if desired */
+    padding: 0;
+    overflow: hidden;
+}
+
+table
+{
+    table-layout: fixed;
+}
+
+div.tableData
+{
+    /* <div class="data tableWrapper"> */
+    overflow-y: scroll; /* FORCE a scrollbar */
+}
+
+.tableData .innerWrapper
+{
+    /* must contain table so doesn't extend *under* tableWrapper scrollbar */
+    position: relative;
+    overflow: hidden;
+}
+
+.header td
+{
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+
+.footer td
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.tableData td
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tableWrapper td
+{
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 4px;
+}
+
+/* right-aligned cells */
+.tableWrapper .c3, 
+.tableWrapper .c4, 
+.tableWrapper .c5
+{
+    text-align: right;
+    padding-left: 4px;
+    padding-right: 10px;
+}
+
+td
+{
+    /* in this example, *default* to no-wrapping */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+td span
+{
+    white-space:normal;
+    overflow: hidden;
+    margin: -4px 0; /* negate cell-padding as desired */
+    margin-right: -4px;
+    padding: 3px 0; /* inner-padding looks nicer */
+    max-height: 3.5em; /* approximately 3-lines height with this inner-padding */
+    overflow-y: auto; /* scrollbar when more than 3-lines high */
+    display: block; /* needed to have a scrollbar on a SPAN */
+}
+
+
+.header
+{
+    background: #005d9a;
+    border-bottom: 1px solid #999;
+}
+
+.footer
+{
+    background: #005d9a;
+    border-top: 1px solid #999;
+}
+
+.header table td, 
+.footer table td
+{
+    border-left: 1px solid #FFF;
+}
+
+.header table td
+{
+    color: #FFF;
+}
+
+div.tableData
+{
+    background: #EEE;
+}
+
+.tableData table tr
+{
+    background: #FFF;
+}
+
+.tableData table tr.alt
+{
+    background: #d5eeff;
+}
+
+.tableData table td
+{
+    border-right: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    vertical-align: top;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.tableWrapper table .c1
+{
+    /* need sufficient specificity here */
+    border-left: 0; /* no left-border on first cell - all tables */
+}
+
+table col.c1
+{
+    width: 200px;
+}
+
+table col.c2
+{
+    width: 75px;
+}
+
+table col.c3
+{
+    width: 50px;
+}
+
+table col.c4
+{
+    width: 50px;
+}
+
+table col.c5
+{
+    width: 50px;
+}

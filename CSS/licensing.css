@@ -1,0 +1,175 @@
+div.tableWrapper
+{
+    /* could pad table wrappers if desired */
+    padding: 0;
+    overflow: hidden;
+}
+
+table
+{
+    table-layout: fixed;
+}
+
+div.tableData
+{
+    /* <div class="data tableWrapper"> */
+    overflow-y: scroll; /* FORCE a scrollbar */
+}
+
+.tableData .innerWrapper
+{
+    /* must contain table so doesn't extend *under* tableWrapper scrollbar */
+    position: relative;
+    overflow: hidden;
+}
+
+.header td
+{
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+
+.footer td
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.tableData td
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tableWrapper td
+{
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 4px;
+}
+
+td
+{
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+td span
+{
+    white-space:normal;
+    overflow: hidden;
+    margin: -4px 0; /* negate cell-padding as desired */
+    margin-right: -4px;
+    padding: 3px 0; /* inner-padding looks nicer */
+    max-height: 3.5em; /* approximately 3-lines height with this inner-padding */
+    overflow-y: auto; /* scrollbar when more than 3-lines high */
+    white-space: normal; /* negate default setting */
+    display: block; /* needed to have a scrollbar on a SPAN */
+}
+
+
+.header
+{
+    background: #005d9a;
+    border-bottom: 1px solid #999;
+}
+
+.footer
+{
+    background: #005d9a;
+    border-top: 1px solid #999;
+}
+
+.header table td, .footer table td
+{
+    border-left: 1px solid #FFF;
+}
+
+.header table td
+{
+    color: #FFF;
+}
+
+div.tableData
+{
+    background: #EEE;
+}
+
+.tableData table tr
+{
+    background: #FFF;
+}
+
+.tableData table tr.alt
+{
+    background: #d5eeff;
+}
+
+.tableData table td
+{
+    border-right: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.tableWrapper table .c1
+{
+    border-left: 0;
+}
+
+
+#licheader table col.c1, #licbody table col.c1, #licfooter table col.c1
+{
+    width: 42px;
+}
+
+#licheader table col.c2, #licbody table col.c2, #licfooter table col.c2
+{
+    width: 300px;
+}
+
+#licbody img
+{
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+}
+
+#licbody tr
+{
+    cursor: pointer;
+}
+
+
+
+
+#details table
+{
+
+
+}
+
+#details td
+{
+    border-right: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 500px;
+}
+
+#details th
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    text-align: left;
+    background-color: #005d9a;   
+    border-width: thin;
+    width: 175px;
+    color: White;
+    padding: 4px;
+}
