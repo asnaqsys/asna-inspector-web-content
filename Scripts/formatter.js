@@ -1,4 +1,4 @@
-// © Copyright 2014 by ASNA, Inc.
+// © Copyright 2014-2023 by ASNA, Inc.
 //
 // ASNA Inspection Report Viewer
 //
@@ -151,6 +151,113 @@ ASNA.ForensicsPage = (function () {
         centerContent = document.getElementById('center');
         centerContent.innerHTML = htmlString;
 
+        stripeRows('.tableData table', 'alt'); // add table-row-striping
+        $('div.header, div.footer').css('paddingRight', $.layout.scrollbarWidth() + 'px');
+        // update the layout
+        resetLayout();
+        $myLayout.hide("west");
+        $myLayout.hide("east");
+    }
+
+    function displayDotNetInformation() {
+        updateCSS('arp');
+        var htmlArray, $dotnet, htmlString, centerContent;
+        htmlArray = [];
+        $dotnet = $xml.find('DotNetFrameworks');
+        htmlArray.push('<DIV>');
+        htmlArray.push('<fieldset><legend>Frameworks</legend>');
+        htmlArray.push('<DIV id="drivesheader" class="header tableWrapper">');
+        htmlArray.push('<TABLE width="100%" cellspacing="0">');
+        htmlArray.push('<COL class="c1">');
+        htmlArray.push('<COL class="c2">');
+        htmlArray.push('<COL class="c3">');
+        htmlArray.push('<TR>');
+        htmlArray.push('<TD class="c1">Version</TD>');
+        htmlArray.push('<TD class="c2">Service Pack</TD>');
+        htmlArray.push('<TD class="c3" style="text-align: left">Level</TD>');
+        htmlArray.push('</TR>');
+        htmlArray.push('</TABLE>');
+        htmlArray.push('</DIV>');
+        htmlArray.push('<DIV id="arpbody" class="tableData tableWrapper">');
+        htmlArray.push('<DIV class="innerWrapper">');
+        htmlArray.push('<TABLE width="100%" cellspacing="0">');
+        htmlArray.push('<COL class="c1">');
+        htmlArray.push('<COL class="c2">');
+        htmlArray.push('<COL class="c3">');
+        $($dotnet).find('Framework').each(function () {
+            htmlArray.push('<TR>');
+            htmlArray.push('<TD>');
+            htmlArray.push($(this).attr('Name'));
+            htmlArray.push('</TD>');
+            htmlArray.push('<TD>');
+            var sp = '';
+            if ($(this).attr('ServicePack')) {
+                sp += 'SP ' + $(this).attr('ServicePack');
+            }
+            htmlArray.push(sp);
+            htmlArray.push('</TD>');
+            htmlArray.push('<TD>');
+            htmlArray.push($(this).attr('Level'));
+            htmlArray.push('</TD>');
+            htmlArray.push('</TR>');
+        });
+        htmlArray.push('</TABLE>');
+        htmlArray.push('</DIV>');
+        htmlArray.push('</DIV>');
+        htmlArray.push('</fieldset>');
+        htmlArray.push('<br />');
+
+        htmlArray.push('<fieldset><legend>Templates</legend>');
+        htmlArray.push('<DIV id="drivesheader" class="header tableWrapper">');
+        htmlArray.push('<TABLE width="100%" cellspacing="0">');
+        htmlArray.push('<COL class="c1">');
+        htmlArray.push('<COL class="c2">');
+        htmlArray.push('<COL class="c3">');
+        htmlArray.push('<COL class="c4">');
+        htmlArray.push('<TR>');
+        htmlArray.push('<TD class="c1">Name</TD>');
+        htmlArray.push('<TD class="c2">Short Name</TD>');
+        htmlArray.push('<TD class="c3" style="text-align: left">Language</TD>');
+        htmlArray.push('<TD class="c4" style="text-align: left">Tags</TD>');
+        htmlArray.push('</TR>');
+        htmlArray.push('</TABLE>');
+        htmlArray.push('</DIV>');
+        htmlArray.push('<DIV id="arpbody" class="tableData tableWrapper">');
+        htmlArray.push('<DIV class="innerWrapper">');
+        htmlArray.push('<TABLE width="100%" cellspacing="0">');
+        htmlArray.push('<COL class="c1">');
+        htmlArray.push('<COL class="c2">');
+        htmlArray.push('<COL class="c3">');
+        htmlArray.push('<COL class="c4">');
+        $($dotnet).find('Template').each(function () {
+            htmlArray.push('<TR>');
+            htmlArray.push('<TD>');
+            htmlArray.push($(this).attr('Name'));
+            htmlArray.push('</TD>');
+            htmlArray.push('<TD>');
+            htmlArray.push($(this).attr('ShortName'));
+            htmlArray.push('</TD>');
+            htmlArray.push('<TD>');
+            htmlArray.push($(this).attr('Language'));
+            htmlArray.push('</TD>');
+            htmlArray.push('<TD>');
+            htmlArray.push($(this).attr('Tags'));
+            htmlArray.push('</TD>');
+            htmlArray.push('</TR>');
+        });
+        htmlArray.push('</TABLE>');
+        htmlArray.push('</DIV>');
+        htmlArray.push('</DIV>');
+        htmlArray.push('</fieldset>');
+        htmlArray.push('<br />');
+
+        htmlArray.push('</DIV>');
+        htmlString = htmlArray.join('');
+        centerContent = document.getElementById('center');
+        centerContent.innerHTML = htmlString;
+
+        stripeRows('.tableData table', 'alt'); // add table-row-striping
+        $('div.header, div.footer').css('paddingRight', $.layout.scrollbarWidth() + 'px');
         // update the layout
         resetLayout();
         $myLayout.hide("west");
@@ -215,26 +322,7 @@ ASNA.ForensicsPage = (function () {
         stripeRows('.tableData table', 'alt'); // add table-row-striping
         $('div.header, div.footer').css('paddingRight', $.layout.scrollbarWidth() + 'px');
         // update the layout
-        $myLayout = $('#content').layout({
-            center__contentSelector: 'div.tableData',
-            resizeWhileDragging: true,
-            useStateCookie: true, // enable state management
-            north__slidable: false,
-            north__resizable: false,
-            north__closable: false,
-            north__size: 30,
-            north__spacing_open: 0,
-            south__slidable: false,
-            south__resizable: false,
-            south__closable: false,
-            south__size: 20,
-            south__spacing_open: 0,
-            east__fxName_close: "none",
-            west__fxName_close: "none"
-        });
-        $myLayout.panes.north.css('backgroundColor', '#e0e0e0');
-        $myLayout.panes.north.css('overflow', 'hidden');
-        $myLayout.panes.south.css('overflow', 'hidden');
+        resetLayout();
         $myLayout.hide("west");
         $myLayout.hide("east");
     }
@@ -411,13 +499,13 @@ ASNA.ForensicsPage = (function () {
 
             var fieldsetClass = '';
             var idString = 'ID: ' + $(this).attr('ID');
-            if ($(this).attr('IsAsnaInstance') === 'true'){
+            if ($(this).attr('IsAsnaInstance') === 'true') {
                 fieldsetClass = 'asnaInstance';
                 idString += ' - ASNA Instance';
             };
-            
+
             htmlArray.push('<fieldset class="' + fieldsetClass + '">');
-            
+
             htmlArray.push('<legend>');
             htmlArray.push(idString);
             htmlArray.push('</legend>');
@@ -468,10 +556,10 @@ ASNA.ForensicsPage = (function () {
             htmlArray.push('Workloads');
             htmlArray.push('</th>');
             htmlArray.push('<TD>');
-      
+
             $(this).find('Workload').each(function () {
-                 htmlArray.push($(this).attr('Name') + '<br />');
-             });
+                htmlArray.push($(this).attr('Name') + '<br />');
+            });
 
 
             htmlArray.push('</TD>');
@@ -614,6 +702,8 @@ ASNA.ForensicsPage = (function () {
             displayServices();
         } else if (menuname === 'VisualStudio') {
             displayVisualStudioInformation();
+        } else if (menuname === 'DotNet') {
+            displayDotNetInformation();
         }
     }
 
@@ -652,6 +742,7 @@ ASNA.ForensicsPage = (function () {
         menuList = [];
         menuList.push(menuItem('System', 'https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/system.png'));
         menuList.push(menuItem('Programs', 'https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/programs.png'));
+        menuList.push(menuItem('DotNet', 'https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/dotnet.png'));
         menuList.push(menuItem('VisualStudio', 'https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/vs.png'));
         menuList.push(menuItem('GAC', 'https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/gac.png'));
         menuList.push(menuItem('Licensing', 'https://cdn.jsdelivr.net/gh/asnaqsys/asna-inspector-web-content/Images/licensing.png'));
@@ -869,7 +960,7 @@ ASNA.ForensicsPage = (function () {
             htmlArray.push('<tr>');
             htmlArray.push('<td><span>');
             htmlArray.push($(this).attr('Name'));
-            htmlArray.push('</td></span>');
+            htmlArray.push('</span></td>');
             htmlArray.push('<td>');
             htmlArray.push($(this).attr('Status'));
             htmlArray.push('</td>');
@@ -885,23 +976,7 @@ ASNA.ForensicsPage = (function () {
         stripeRows('.tableData table', 'alt'); // add table-row-striping
         $('div.header, div.footer').css('paddingRight', $.layout.scrollbarWidth() + 'px');
         // update the layout
-        $myLayout = $('#content').layout({
-            center__contentSelector: 'div.tableData',
-            resizeWhileDragging: true,
-            useStateCookie: true, // enable state management
-            north__slidable: false,
-            north__resizable: false,
-            north__closable: false,
-            north__size: 30,
-            north__spacing_open: 0,
-            south__slidable: false,
-            south__resizable: false,
-            south__closable: false,
-            south__size: 20,
-            south__spacing_open: 0,
-            east__fxName_close: "none",
-            west__fxName_close: "none"
-        });
+        resetLayout();
         $myLayout.panes.north.css('backgroundColor', '#e0e0e0');
         $myLayout.panes.north.css('overflow', 'hidden');
         $myLayout.panes.south.css('overflow', 'hidden');
